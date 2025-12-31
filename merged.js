@@ -32,7 +32,7 @@ function hideLoadingScreen(){var e=document.getElementById("loading-screen");e&&
                         data-category="${d}"
                         data-name="${i.name||i.model||""}"
                         data-price="${void 0===s?"":"number"==typeof s?s:(""+s).replace(/[^0-9.]/g,"")}"
-                        data-description="${(()=>{let n=i.description||i["描述"]||"";if("PLC控制器"===d&&(a=[],i.motionControlAxes&&a.push(i.motionControlAxes),a.push(i.etherNetIP?"支持EtherNet IP网口":"不支持EtherNet IP网口"),0<a.length)&&(a=a.join("/"),n=n?n+"/"+a:a),"变频器"===d){var a=i.powerRange||i["功率范围"]||"",o=i.voltage||i["电压等级"]||"";if(a||o){let e=a,t=(!a||a.includes("Kw")||a.includes("KW")||a.includes("kw")||(e=a+"Kw"),o);!o||o.includes("V")||o.includes("v")||(t=o+"V");a=(e+"/"+t).trim();n=n?n+"/"+a:a}}return n})()}">
+                        data-description="${(()=>{let n=i.description||i["描述"]||"";if("PLC控制器"===d&&(a=[],i.motionControlAxes&&a.push(i.motionControlAxes),a.push(i.etherNetIP?"支持EtherNet IP网口":"不支持EtherNet IP网口"),0<a.length)&&(a=a.join("/"),n=n?n+"/"+a:a),"变频器"===d){var a=i.powerRange||i["功率范围"]||"",o=i.voltage||i["电压等级"]||"";if(a||o){let e=""+a,t=(!e||e.includes("Kw")||e.includes("KW")||e.includes("kw")||(e+="Kw"),""+o);!t||t.includes("V")||t.includes("v")||(t+="V");a=(e+"/"+t).trim();n=n?n+"/"+a:a}}return n})()}">
                         + 添加到BOM
                     </button>
                 </div>
@@ -189,7 +189,7 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
         display: flex;
         justify-content: flex-end;
         gap: 12px;
-      `,document.createElement("button")),l=(d.textContent="朕不允",d.className="cancel-btn",d.style.cssText=`
+      `,document.createElement("button")),l=(d.textContent="取消",d.className="cancel-btn",d.style.cssText=`
         padding: 8px 16px;
         border: 1px solid #d9d9d9;
         border-radius: 4px;
@@ -198,7 +198,7 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
         cursor: pointer;
         font-size: 14px;
         transition: all 0.3s ease;
-      `,d.addEventListener("click",()=>{a.style.opacity="0",a.style.visibility="hidden"}),document.createElement("button"));l.textContent="朕准了",l.className="export-btn",l.style.cssText=`
+      `,d.addEventListener("click",()=>{a.style.opacity="0",a.style.visibility="hidden"}),document.createElement("button"));l.textContent="导出",l.className="export-btn",l.style.cssText=`
         padding: 8px 16px;
         border: 1px solid #1890ff;
         border-radius: 4px;
@@ -256,7 +256,7 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
         display: flex;
         justify-content: flex-end;
         gap: 12px;
-      `,document.createElement("button")),l=(d.textContent="朕不允",d.className="cancel-btn",d.style.cssText=`
+      `,document.createElement("button")),l=(d.textContent="取消",d.className="cancel-btn",d.style.cssText=`
         padding: 8px 16px;
         border: 1px solid #d9d9d9;
         border-radius: 4px;
@@ -543,8 +543,8 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
         <h3>屏幕尺寸</h3>
         <div id="hmiScreenSizeOptions" class="filter-options"></div>
     `,i.appendChild(t),e.querySelectorAll('input[type="radio"]').forEach(e=>{e.addEventListener("change",function(){hmiSelectedFilters.series=[this.value],hmiSelectedFilters.screenSize=[],updateHmiScreenSizeOptions(this.value)})}),(t=document.createElement("div")).className="modal-actions",t.innerHTML=`
-        <button id="hmiCancelFilter" class="cancel-filter-btn">朕不允</button>
-        <button id="hmiConfirmFilter" class="confirm-filter-btn">朕准了</button>
+        <button id="hmiCancelFilter" class="cancel-filter-btn">取消</button>
+        <button id="hmiConfirmFilter" class="confirm-filter-btn">应用筛选</button>
     `,i.appendChild(t),(e=document.getElementById("hmiConfirmFilter"))&&e.addEventListener("click",function(){window.pageRouter&&window.pageRouter.confirmFilter("HMI")}),i=document.getElementById("hmiCancelFilter"))&&i.addEventListener("click",function(){var e=document.getElementById("hmiFilterModal");e&&e.classList.remove("show")})}function showHMIFilterModal(){hmiSelectedFilters={},initHMIFilterModal();var e=document.getElementById("hmiFilterModal");e&&(e.querySelectorAll('input[type="radio"]:checked').forEach(e=>{e.checked=!1}),e=document.getElementById("hmiScreenSizeSection"))&&(e.style.display="none")}function showHMIResults(e){var t=window.hmiData||{},i=window.hmiType&&window.hmiType.displayParams||["型号","屏幕尺寸","分辨率","价格"],n=window.hmiType&&window.hmiType.name||"人机界面",t=filterHMIProductData(t,e);displayResults("hmiResultContent",t,i,n,[])}function filterHMIProductData(e,i){let n=[];if(Object.entries(e).forEach(([t,e])=>{Object.values(e).forEach(e=>{n.push({...e,series:t})})}),0!==Object.keys(i).length){if(i.model){let t=i.model.trim().toUpperCase();n=n.filter(e=>e.model&&e.model.toUpperCase().includes(t))}i.series&&0<i.series.length&&(n=n.filter(e=>i.series.includes(e.series))),i.screenSize&&0<i.screenSize.length&&(n=n.filter(e=>i.screenSize.includes(e.screenSize)))}return n}(()=>{let e=document.getElementById("bomAddModal"),t=document.getElementById("bomAddTitle"),i=document.getElementById("bomAddBody"),o=document.getElementById("bomAddConfirm"),l=document.getElementById("bomAddCancel"),d=document.getElementById("bomAddClose");function a(){e&&e.classList.remove("show")}window.HMIModals={openQuantityModal:function(n){e&&n&&(t.textContent=`添加 ${n.model} 到BOM表`,i.innerHTML=`
             <div class="form-group">
                 <label>数量</label>
@@ -585,8 +585,8 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
             <p>请先选择电压等级</p>
         </div>
     `,e.appendChild(o),r.querySelectorAll('input[type="radio"]').forEach(e=>{e.addEventListener("change",function(){this.checked&&(inverterSelectedFilters.series=[this.value],l(),a())})});t=document.createElement("div");t.className="modal-actions",t.innerHTML=`
-        <button id="inverterCancelFilter" class="cancel-filter-btn">朕不允</button>
-        <button id="inverterConfirmFilter" class="confirm-filter-btn">朕准了</button>
+        <button id="inverterCancelFilter" class="cancel-filter-btn">取消</button>
+        <button id="inverterConfirmFilter" class="confirm-filter-btn">应用筛选</button>
     `,e.appendChild(t),document.getElementById("inverterConfirmFilter").addEventListener("click",function(){applyInverterFilters()}),document.getElementById("inverterCancelFilter").addEventListener("click",function(){n.classList.remove("show")}),n.classList.add("show"),inverterSelectedFilters={},window.addEventListener("click",function e(t){t.target===n&&(n.classList.remove("show"),window.removeEventListener("click",e))})}function applyInverterFilters(){document.getElementById("inverterFilterModal").classList.remove("show"),window.pageRouter&&window.pageRouter.showPage("inverterResult");var e=window.inverterData||{},t=window.inverterType&&window.inverterType.displayParams||["型号","功率范围","电压等级","价格"],n=window.inverterType&&window.inverterType.name||"变频器",e=("function"==typeof window.setTopBarTitle&&window.setTopBarTitle(`${n}筛选结果 (${Object.keys(e).length?filterInverterProductData(e,inverterSelectedFilters).length:0})`),filterInverterProductData(e,inverterSelectedFilters));displayResults("inverterResultContent",e,t,n)}function filterInverterProductData(t,r){let n=[];if(0===Object.keys(r).length)return Object.values(t).forEach(e=>{Object.values(e).forEach(e=>{n.push(e)})}),n;let i=[];if(r.series&&0<r.series.length?r.series.forEach(e=>{t[e]&&Object.values(t[e]).forEach(e=>{i.push(e)})}):Object.values(t).forEach(e=>{Object.values(e).forEach(e=>{i.push(e)})}),Object.keys(r).length===(r.series?1:0))return i;let e=i;return Object.keys(r).forEach(n=>{if("series"!==n)if("model"===n){let t=r[n].trim().toUpperCase();e=e.filter(e=>e.model&&e.model.toUpperCase()==t)}else r[n]&&0<r[n].length&&(e=e.filter(e=>{e=e[n]||e[getParamKey(n)];return void 0!==e&&r[n].includes(""+e)}))}),e}(()=>{let e=document.getElementById("bomAddModal"),t=document.getElementById("bomAddTitle"),n=document.getElementById("bomAddBody"),r=document.getElementById("bomAddConfirm"),o=document.getElementById("bomAddCancel"),l=document.getElementById("bomAddClose");function a(){e&&e.classList.remove("show")}window.InverterModals={openQuantityModal:function(i){e&&i&&(t.textContent=`添加 ${i.model} 到BOM表`,n.innerHTML=`
             <div class="form-group">
                 <label>数量</label>
@@ -619,8 +619,8 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
         <h3>选择子类别</h3>
         <div id="ioSubCategoryOptions" class="sub-category-group filter-options"></div>
     `,e.appendChild(t),document.createElement("div")),e=(t.className="modal-actions",t.innerHTML=`
-        <button id="ioCancelFilter" class="cancel-filter-btn">朕不允</button>
-        <button id="ioConfirmFilter" class="confirm-filter-btn">朕准了</button>
+        <button id="ioCancelFilter" class="cancel-filter-btn">取消</button>
+        <button id="ioConfirmFilter" class="confirm-filter-btn">应用筛选</button>
     `,e.appendChild(t),document.getElementById("ioConfirmFilter").addEventListener("click",function(){applyIOFilters()}),document.getElementById("ioCancelFilter").addEventListener("click",function(){o.classList.remove("show")}),ioSelectedFilters={},i.querySelector('input[type="radio"][value="GL20系列"]'));e&&(e.checked=!0,e.parentElement.classList.add("checked"),ioSelectedFilters.series=["GL20系列"],loadIOSubCategories("GL20系列",!0)),o.classList.add("show"),window.addEventListener("click",function e(t){t.target===o&&(o.classList.remove("show"),window.removeEventListener("click",e))})}function loadIOSubCategories(e,t){var o,i=document.getElementById("ioSubCategoryOptions");i&&(ioSelectedFilters.series&&0!==ioSelectedFilters.series.length?(o=ioSelectedFilters.series[0],o=ioSeriesSubCategoryOptions[o]||[],i.innerHTML=`
         ${o.map(e=>`
             <label class="checkbox-option">
@@ -660,8 +660,8 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
                     <span>${e}</span>
                 </label>
             `).join(""),t.querySelectorAll('input[type="radio"]').forEach(e=>{e.addEventListener("change",function(){plcSelectedFilters.axes=[this.value]})})):l.style.display="none"})});t=document.createElement("div");t.className="modal-actions",t.innerHTML=`
-        <button id="plcCancelFilter" class="cancel-filter-btn">朕不允</button>
-        <button id="plcConfirmFilter" class="confirm-filter-btn">朕准了</button>
+        <button id="plcCancelFilter" class="cancel-filter-btn">取消</button>
+        <button id="plcConfirmFilter" class="confirm-filter-btn">应用筛选</button>
     `,e.appendChild(t),document.getElementById("plcConfirmFilter").addEventListener("click",function(){applyPLCFilters()}),document.getElementById("plcCancelFilter").addEventListener("click",function(){l.classList.remove("show")}),l.classList.add("show"),plcSelectedFilters={},window.addEventListener("click",function e(t){t.target===l&&(l.classList.remove("show"),window.removeEventListener("click",e))})}function applyPLCFilters(){document.getElementById("plcFilterModal").classList.remove("show"),window.pageRouter&&window.pageRouter.showPage("plcResult");var e=window.plcData||{},t=window.plcType&&window.plcType.displayParams||["型号","运动控制轴数","价格"],l=window.plcType&&window.plcType.name||"PLC控制器",e=("function"==typeof window.setTopBarTitle&&window.setTopBarTitle(`${l}筛选结果 (${Object.keys(e).length?filterPLCProductData(e,plcSelectedFilters).length:0})`),filterPLCProductData(e,plcSelectedFilters));displayResults("plcResultContent",e,t,l)}function filterPLCProductData(t,n){let l=[];if(0===Object.keys(n).length)return Object.values(t).forEach(e=>{Object.values(e).forEach(e=>{l.push(e)})}),l;let i=[];if(n.series&&0<n.series.length?n.series.forEach(e=>{t[e]&&Object.values(t[e]).forEach(e=>{i.push(e)})}):Object.values(t).forEach(e=>{Object.values(e).forEach(e=>{i.push(e)})}),Object.keys(n).length===(n.series?1:0))return i;let e=i;return Object.keys(n).forEach(l=>{if("series"!==l)if("model"===l){let t=n[l].trim().toUpperCase();e=e.filter(e=>e.model&&e.model.toUpperCase().includes(t))}else"axes"===l&&n.axes&&0<n.axes.length?e=e.filter(e=>{e=e.motionControlAxes;return void 0!==e&&n.axes.includes(""+e)}):n[l]&&0<n[l].length&&(e=e.filter(e=>{e=e[l]||e[getParamKey(l)];return void 0!==e&&n[l].includes(""+e)}))}),e}(()=>{let e=document.getElementById("bomAddModal"),t=document.getElementById("bomAddTitle"),l=document.getElementById("bomAddBody"),n=document.getElementById("bomAddConfirm"),o=document.getElementById("bomAddCancel"),d=document.getElementById("bomAddClose");function a(){e&&e.classList.remove("show")}window.PLCModals={openQuantityModal:function(i){e&&i&&(t.textContent=`添加 ${i.model} 到BOM表`,l.innerHTML=`
             <div class="form-group">
                 <label>数量</label>
@@ -691,8 +691,8 @@ decryptAndExecute();})();document.addEventListener("DOMContentLoaded",function()
         margin-top: var(--spacing-md);
         padding: var(--spacing-sm) 0;
     `,a.innerHTML=`
-        <button id="servoCancelFilter" class="cancel-filter-btn">朕不允</button>
-        <button id="servoConfirmFilter" class="confirm-filter-btn">朕准了</button>
+        <button id="servoCancelFilter" class="cancel-filter-btn">取消</button>
+        <button id="servoConfirmFilter" class="confirm-filter-btn">应用筛选</button>
     `,e.appendChild(a),s.querySelector(".modal-content")),e=(o&&(o.style.cssText=`
             padding-top: var(--spacing-md);
             padding-bottom: var(--spacing-md);
