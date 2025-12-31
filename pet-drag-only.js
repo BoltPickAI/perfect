@@ -58,7 +58,7 @@
                 font-family: Arial, sans-serif;
                 font-size: 14px;
                 min-width: 120px;
-            `,this.sizeRatio=window.SettingsManager?window.SettingsManager.getSetting("sizeRatio"):100,this.updatePetSize(),[{id:"static",text:"静止"},{id:"normal",text:"正常"},{id:"dance",text:"跳舞"},{id:"hide",text:"隐藏"}].forEach(e=>{let t=document.createElement("div");t.id="pet-menu-"+e.id,t.className="pet-menu-item",t.textContent=e.text,t.style.cssText=`
+            `,this.sizeRatio=window.SettingsManager?window.SettingsManager.getSetting("sizeRatio"):80,this.updatePetSize(),[{id:"static",text:"静止"},{id:"normal",text:"正常"},{id:"dance",text:"跳舞"},{id:"hide",text:"隐藏"}].forEach(e=>{let t=document.createElement("div");t.id="pet-menu-"+e.id,t.className="pet-menu-item",t.textContent=e.text,t.style.cssText=`
                     padding: 10px 15px;
                     cursor: pointer;
                     transition: all 0.2s ease;
