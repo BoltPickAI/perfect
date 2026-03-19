@@ -1,0 +1,282 @@
+/* 结果页面样式 */
+.result-page {
+  display: none;
+  background-color: var(--bg-secondary);
+  min-height: calc(100vh - 120px); /* 减去顶部标题栏和主内容区域padding */
+  height: calc(100vh - 70px);
+  overflow-y: auto;
+}
+
+.result-header {
+  background-color: var(--bg-primary);
+  padding: 0 var(--spacing-xl);
+  height: var(--header-height);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.result-header h2 {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.01em;
+}
+
+.back-to-main {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-right: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.back-to-main:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* 隐藏结果页内部的返回按钮，使用顶部栏按钮 */
+.result-header .back-to-main {
+  display: none;
+}
+
+/* 结果容器样式 */
+#resultsContainer {
+  -ms-flex: 1;
+  flex: 1;
+  overflow-y: auto;
+  position: relative;
+  display: none; /* 默认隐藏 */
+}
+
+#resultsContainer.show {
+  display: block;
+}
+
+/* 结果内容样式 */
+.results-container {
+  padding: var(--spacing-xl);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+.result-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  transition: all var(--transition-normal);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm), 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.result-card:hover {
+  border-color: var(--primary-color);
+  transition: all var(--transition-normal);
+}
+
+.result-card-title {
+  color: var(--text-primary);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  letter-spacing: 0.01em;
+}
+
+.result-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.price-badge {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-sm);
+  height: var(--component-height-badge);
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+}
+
+.result-card-info {
+  margin-bottom: var(--spacing-md);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.result-info-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+}
+
+.result-info-item:last-child {
+  border-bottom: none;
+}
+
+.result-info-item strong {
+  color: var(--text-secondary);
+  font-weight: 450;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  min-width: 100px;
+  margin-right: var(--spacing-sm);
+}
+
+.result-info-item span {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  text-align: left;
+}
+
+.result-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+}
+
+.compare-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  height: var(--component-height-button);
+  padding: 0 var(--spacing-sm);
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.compare-btn:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.compare-btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.add-to-bom-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  height: var(--component-height-button);
+  padding: 0 var(--spacing-sm);
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-to-bom-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.add-to-bom-btn:active {
+  box-shadow: var(--shadow-sm);
+}
+
+.add-to-bom-btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.download-btn {
+  background-color: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  height: var(--component-height-button);
+  padding: 0 var(--spacing-sm);
+  cursor: pointer;
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.download-btn:hover {
+  background-color: var(--bg-secondary);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.download-btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* 筛选结果摘要 */
+.filters-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-chip {
+  background-color: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  padding: 0 var(--spacing-sm);
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8125rem;
+}

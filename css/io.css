@@ -1,0 +1,186 @@
+/* IO筛选弹窗样式 */
+#ioFilterModal .filter-options {
+  -ms-grid-columns: 1fr 1fr 1fr 1fr !important;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr !important;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr)) !important;
+}
+
+/* 设置IO弹窗内容容器为相对定位 */
+#ioFilterModal .modal-content {
+  position: relative;
+}
+
+/* 优化IO弹窗的关闭按钮 */
+#ioFilterModal .close-io {
+  color: var(--text-tertiary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  margin: 0;
+}
+
+#ioFilterModal .close-io:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  transform: rotate(90deg);
+}
+
+/* 设置户外IO弹窗内容容器为相对定位 */
+#outdoorIoFilterModal .modal-content {
+  position: relative;
+}
+
+/* 优化户外IO弹窗的关闭按钮 */
+#outdoorIoFilterModal .close-outdoorio {
+  color: var(--text-tertiary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  margin: 0;
+}
+
+#outdoorIoFilterModal .close-outdoorio:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  transform: rotate(90deg);
+}
+
+/* 优化IO弹窗的标题 */
+#ioFilterModal .modal-content h2 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* 优化IO弹窗的操作按钮区域 */
+#ioFilterModal .modal-actions {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  background-color: transparent;
+  padding: var(--spacing-lg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-left: calc(-1 * var(--spacing-lg));
+  margin-right: calc(-1 * var(--spacing-lg));
+  margin-bottom: calc(-1 * var(--spacing-lg));
+}
+
+/* 优化IO弹窗的筛选选项选中状态 */
+#ioFilterModal .filter-option.selected {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 优化IO弹窗的响应式设计 */
+@media (max-width: 768px) {
+  #ioFilterModal .modal-content {
+    width: 98%;
+    margin: 2% auto;
+    padding: var(--spacing-md);
+  }
+
+  #ioFilterModal .modal-actions {
+    margin-left: calc(-1 * var(--spacing-md));
+    margin-right: calc(-1 * var(--spacing-md));
+    margin-bottom: calc(-1 * var(--spacing-md));
+    padding: var(--spacing-md);
+  }
+}
+
+/* IO子类别筛选选项样式 */
+#ioFilterModal .sub-category-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+/* IO系列筛选选项样式 */
+#ioFilterModal .series-group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-sm);
+}
+
+/* IO筛选结果样式 */
+#ioResultContent .result-item {
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-secondary);
+  transition: all var(--transition-fast);
+}
+
+#ioResultContent .result-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* IO产品卡片样式 */
+.product-card[data-type="IO"] .card-icon {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--primary-light)
+  );
+  color: white;
+}
+
+.product-card[data-type="IO"] .card-icon i {
+  font-size: 1.25rem;
+}
+
+.product-card[data-type="IO"]:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* IO产品卡片图标 */
+.product-card[data-type="IO"] .card-icon i {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f085'; /* 使用网络图标表示IO模块 */
+}
+
+/* IO筛选弹窗选项样式 */
+#ioFilterModal .checkbox-option span,
+#ioFilterModal .radio-option span {
+  color: var(--text-primary);
+}
+
+/* IO筛选弹窗选项选中状态样式 */
+#ioFilterModal .checkbox-option.checked span,
+#ioFilterModal .radio-option.checked span {
+    color: #fff !important;
+}

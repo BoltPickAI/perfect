@@ -1,0 +1,115 @@
+/* 变频器筛选弹窗样式 */
+#inverterFilterModal .filter-options {
+  -ms-grid-columns: 1fr 1fr 1fr 1fr !important;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr !important;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+}
+
+/* 允许系列选项中的文字换行 */
+#inverterFilterModal .series-name {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  text-align: center !important;
+  line-height: 1.2 !important;
+}
+
+/* 调整系列选项的padding和margin */
+#inverterFilterModal .radio-option {
+  padding: 8px !important;
+  margin: 4px !important;
+}
+
+/* 调整small标签的字体大小 */
+#inverterFilterModal .series-name small {
+  font-size: 0.75rem !important;
+  display: block !important;
+  margin-top: 4px !important;
+}
+
+/* 设置变频器弹窗内容容器为相对定位 */
+#inverterFilterModal .modal-content {
+  position: relative;
+}
+
+/* 优化变频器弹窗的关闭按钮 */
+#inverterFilterModal .close-inverter {
+  color: var(--text-tertiary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: var(--spacing-sm);
+  right: var(--spacing-sm);
+  margin: 0;
+}
+
+#inverterFilterModal .close-inverter:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-tertiary);
+  transform: rotate(90deg);
+}
+
+/* 优化变频器弹窗的标题 */
+#inverterFilterModal .modal-content h2 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* 优化变频器弹窗的操作按钮区域 */
+#inverterFilterModal .modal-actions {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  background-color: transparent;
+  padding: var(--spacing-lg);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  margin-left: calc(-1 * var(--spacing-lg));
+  margin-right: calc(-1 * var(--spacing-lg));
+  margin-bottom: calc(-1 * var(--spacing-lg));
+}
+
+/* 优化变频器弹窗的筛选选项选中状态 */
+#inverterFilterModal .filter-option.selected {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 确保选中状态下small元素文字颜色为白色 */
+#inverterFilterModal .radio-option.checked small,
+#inverterFilterModal .checkbox-option.checked small {
+  color: #fff !important;
+}
+
+/* 增加变频器弹窗的宽度 */
+#inverterFilterModal .modal-content {
+  max-width: 1100px;
+}
+
+/* 优化变频器弹窗的响应式设计 */
+@media (max-width: 768px) {
+  #inverterFilterModal .modal-content {
+    width: 98%;
+    margin: 2% auto;
+    padding: var(--spacing-md);
+    max-width: 100%;
+  }
+
+  #inverterFilterModal .modal-actions {
+    margin-left: calc(-1 * var(--spacing-md));
+    margin-right: calc(-1 * var(--spacing-md));
+    margin-bottom: calc(-1 * var(--spacing-md));
+    padding: var(--spacing-md);
+  }
+}
